@@ -14,5 +14,10 @@ initial milestone small and achievable.
 - Build platform shells that can render the same feed UI and connect to the shared core.
 - Keep the first milestone focused on a mock/local notification feed.
 
+## Cross-platform intent
+- Android is the primary runtime (notifications + background services).
+- PC is a companion surface for viewing and managing the feed.
+- Shared core logic should make both shells behave consistently, even if the PC UI ships later.
+
 See `docs/foundation.md` for the cross-platform architecture outline and first
 implementation milestones.

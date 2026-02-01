@@ -7,12 +7,17 @@ cross-platform Android + PC support.
 - Planning + architecture only (no production integrations yet).
 - One shared domain model for notification items and user actions.
 - Platform shells for Android and PC that can render a basic feed using mock data.
+- Android is the primary runtime; desktop is a companion surface.
 
 ## Recommended approach
 **Kotlin + Compose Multiplatform** is the most direct path to share UI and business
 logic across Android and desktop (Windows/macOS/Linux). If desktop is strictly a
 companion controller rather than a full UI, the desktop layer can be minimal and
 the shared core still stays in Kotlin.
+
+If desktop support needs to come later, start with a pure Android build and keep
+the shared core module boundaries in place so the desktop shell can be added
+without rewriting the domain layer.
 
 ### Proposed module layout (future)
 ```
@@ -36,6 +41,10 @@ the shared core still stays in Kotlin.
 - Installable Android app.
 - Home screen displays a mock notification feed.
 - No external APIs, no permissions beyond basic app launch.
+
+## Milestone 2 (first desktop companion)
+- Desktop app can read the same mock feed pipeline.
+- Basic filtering and status updates mirror Android behavior.
 
 ## Reliability notes
 - "100% uptime" should be interpreted as "maximize availability" on mobile.
